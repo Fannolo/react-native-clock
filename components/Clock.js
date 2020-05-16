@@ -1,26 +1,37 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
+import moment from 'moment';
+import tz from 'moment-timezone';
 
 export class Clock extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      curTime: new Date().toLocaleString(),
+      curTime: this._currentTime(),
     };
   }
 
   componentDidMount = () => {
     this._currentTime();
+    console.log(moment.tz.countries());
+    console.log(moment.tz.zonesForCountry('US'));
   };
-
-  componentDidUpdate() {
-    console.log(`current time is: ${this.state.curTime}`);
-  }
 
   render() {
     return (
-      <View width={this.props.clockDimension}>
-        <Text fontSize={this.props.clockDimension}> {this.state.curTime} </Text>
+      <View>
+        <Text
+          style={{
+            fontSize: this.props.dimension ? this.props.dimension : 20,
+            fontFamily: this.props.digitalClock
+              ? 'DIGITALDREAMFAT'
+              : this.props.fontFamily
+              ? this.props.fontFamily
+              : null,
+            color: this.props.color,
+          }}>
+          {this.state.curTime}
+        </Text>
       </View>
     );
   }
@@ -28,11 +39,27 @@ export class Clock extends Component {
   _currentTime = () => {
     setInterval(() => {
       this.setState({
-        curTime: new Date().toLocaleString(),
+        curTime: moment()
+          .tz(this._returnCountry())
+          .format(this._timeFormat(this.props.twentyFour)),
       });
-    }, 1000);
+    });
+  };
+
+  _timeFormat = (twentyFour) => {
+    return twentyFour ? 'HH:mm:ss' : 'hh:mm:ss A';
+  };
+
+  _returnCountry = (country) => {
+    return 'America/New_York';
   };
 }
+
 Clock.defaultProps = {
-  clockDimension: 40,
+  clockDimension: 200,
+  digitalClock: false,
+  color: '#000',
+  twentyFour: false,
+  country: null,
+  dimension: null,
 };

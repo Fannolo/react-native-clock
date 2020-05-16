@@ -7,9 +7,12 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "simulator": "open -a simulator"
   },
   "dependencies": {
+    "moment": "^2.25.3",
+    "moment-timezone": "^0.5.29",
     "react": "16.11.0",
     "react-native": "0.62.2"
   },

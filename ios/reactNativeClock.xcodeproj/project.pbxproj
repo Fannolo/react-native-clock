@@ -20,6 +20,7 @@
 		92A088C1CC042C0AFEDB5CA1 /* libPods-reactNativeClock-reactNativeClockTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 456134AEC94D80C8844F42AF /* libPods-reactNativeClock-reactNativeClockTests.a */; };
 		A5BF24E5908CD8000E792AC9 /* libPods-reactNativeClock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12FB6318188B865C3A218E50 /* libPods-reactNativeClock.a */; };
 		BBE59D3CE24C522157AC44D2 /* libPods-reactNativeClock-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F9F1FB5A4FB1C6C7A2AE17 /* libPods-reactNativeClock-tvOS.a */; };
+		0C6EF6C29C694A67AFFD5C1D /* DIGITALDREAMFAT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE52B800281449DE923F6D58 /* DIGITALDREAMFAT.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		9FC90359400C57D972ED2E62 /* Pods-reactNativeClock-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reactNativeClock-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-reactNativeClock-tvOSTests/Pods-reactNativeClock-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		EE52B800281449DE923F6D58 /* DIGITALDREAMFAT.ttf */ = {isa = PBXFileReference; name = "DIGITALDREAMFAT.ttf"; path = "../assets/fonts/DIGITALDREAMFAT.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				A6D32414766A6DD205ECDD3B /* Pods */,
+				D6170374AC5243CDB4CAE681 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -197,6 +200,15 @@
 			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		D6170374AC5243CDB4CAE681 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				EE52B800281449DE923F6D58 /* DIGITALDREAMFAT.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -340,6 +352,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				0C6EF6C29C694A67AFFD5C1D /* DIGITALDREAMFAT.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
