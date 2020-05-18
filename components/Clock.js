@@ -9,16 +9,37 @@ export class Clock extends Component {
     this.state = {
       curTime: this._currentTime(),
     };
+
+    this.country = this._returnCountry(this.props.country, this.props.city);
   }
 
   componentDidMount = () => {
     this._currentTime();
-    console.log(moment.tz.countries());
-    console.log(moment.tz.zonesForCountry('US'));
   };
 
   render() {
-    return (
+    return this.props.analog ? (
+      <View
+        style={{
+          justifyContent: 'center',
+          alignContent: 'center',
+          alignItems: 'center',
+          borderWidth: 10,
+          position: 'relative',
+          width: this.props.clockDimension,
+          height: this.props.clockDimension,
+          borderColor: this.props.color,
+          borderRadius: this.props.clockDimension,
+        }}>
+        <View borderWidth={5} height={15} position={'absolute'} top={0}></View>
+        <View
+          borderWidth={5}
+          height={15}
+          position={'absolute'}
+          bottom={0}></View>
+        <View borderWidth={2} width={5}></View>
+      </View>
+    ) : (
       <View>
         <Text
           style={{
@@ -40,7 +61,7 @@ export class Clock extends Component {
     setInterval(() => {
       this.setState({
         curTime: moment()
-          .tz(this._returnCountry())
+          .tz('Asia/Shanghai')
           .format(this._timeFormat(this.props.twentyFour)),
       });
     });
@@ -50,8 +71,13 @@ export class Clock extends Component {
     return twentyFour ? 'HH:mm:ss' : 'hh:mm:ss A';
   };
 
-  _returnCountry = (country) => {
-    return 'America/New_York';
+  _returnCountry = (country, city) => {
+    // moment.tz.zonesForCountry(country).map((item) => {
+    //   if (item.toLowerCase().includes(city.replace(' ', '_').toLowerCase())) {
+    //     console.log(item);
+    //     return item.toString();
+    //   }
+    // });
   };
 }
 
@@ -60,6 +86,8 @@ Clock.defaultProps = {
   digitalClock: false,
   color: '#000',
   twentyFour: false,
-  country: null,
+  country: 'US',
+  city: 'New York',
   dimension: null,
+  analog: true,
 };
