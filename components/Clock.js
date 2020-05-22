@@ -11,15 +11,14 @@ export class Clock extends Component {
     };
   }
 
-  componentDidMount = () => {
-    this._currentTime();
-    console.log(moment.tz.countries());
-    console.log(moment.tz.zonesForCountry('US'));
-  };
+  componentDidMount() {
+    console.log('pippo', moment.tz.countries());
+    console.log('pippo', moment.tz.countries());
+  }
 
   render() {
     return (
-      <View>
+      <View style={[this.props.style]}>
         <Text
           style={{
             fontSize: this.props.dimension ? this.props.dimension : 20,
@@ -40,14 +39,22 @@ export class Clock extends Component {
     setInterval(() => {
       this.setState({
         curTime: moment()
-          .tz(this._returnCountry())
-          .format(this._timeFormat(this.props.twentyFour)),
+          .tz(this.props.country)
+          //.tz(this._returnCountry())
+          .format(
+            this._dateFormat(this.props.fullDate),
+            this._timeFormat(this.props.twentyFour),
+          ),
       });
     });
   };
 
   _timeFormat = (twentyFour) => {
     return twentyFour ? 'HH:mm:ss' : 'hh:mm:ss A';
+  };
+
+  _dateFormat = (fullDate) => {
+    return fullDate ? 'MMMM Do YYYY' : '';
   };
 
   _returnCountry = (country) => {
@@ -59,7 +66,8 @@ Clock.defaultProps = {
   clockDimension: 200,
   digitalClock: false,
   color: '#000',
+  fullDate: false,
   twentyFour: false,
-  country: null,
+  country: 'America/New_York',
   dimension: null,
 };
