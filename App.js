@@ -27,6 +27,7 @@ export default class App extends Component {
               dimension={40}
             />
             <Clock
+              fullDate
               style={styles.clock}
               twentyFour={false}
               digitalClock={false}

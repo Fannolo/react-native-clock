@@ -38,13 +38,18 @@ export class Clock extends Component {
   _currentTime = () => {
     setInterval(() => {
       this.setState({
-        curTime: moment()
-          .tz(this.props.country)
-          //.tz(this._returnCountry())
-          .format(
-            this._dateFormat(this.props.fullDate),
-            this._timeFormat(this.props.twentyFour),
-          ),
+        curTime: this.props.fullDate
+          ? moment()
+              .tz(this.props.country)
+              //.tz(this._returnCountry())
+              .format(
+                `${this._dateFormat(this.props.fullDate)},
+                ${this._timeFormat(this.props.twentyFour)}`,
+              )
+          : moment()
+              .tz(this.props.country)
+              //.tz(this._returnCountry())
+              .format(this._timeFormat(this.props.twentyFour)),
       });
     });
   };
@@ -66,7 +71,7 @@ Clock.defaultProps = {
   clockDimension: 200,
   digitalClock: false,
   color: '#000',
-  fullDate: false,
+  fullDate: true,
   twentyFour: false,
   country: 'America/New_York',
   dimension: null,
