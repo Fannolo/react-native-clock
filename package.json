@@ -1,7 +1,8 @@
 {
-  "name": "reactNativeClock",
-  "version": "0.0.1",
-  "private": true,
+  "name": "react-native-clock",
+  "version": "1.0.0",
+  "description": "A simple and fully customizable React Native component that implements a simple clock.",
+  "main": "index.js",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
